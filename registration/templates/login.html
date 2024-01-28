@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% load django_bootstrap5 %}
+{%block content%}
+<div class="container">
+<h2>
+    login
+</h2>
+{%for message in messages%}
+<div class="alert alert-danger" role="alert">
+    {{message}}
+  </div>
+{%endfor%}
+<form method="post" >
+
+    {%csrf_token%}
+    {% bootstrap_form form %}
+    
+    
+    <input value="login" type="submit" class="btn btn-primary">
+    </form>
+</div>
+{%endblock%}
+

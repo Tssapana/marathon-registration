@@ -1,0 +1,28 @@
+{% load static %}  
+<nav class="navbar navbar-expand-lg" style="background-color: #3A9B96;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'registration:home' %}">
+            <img src="{% static 'images/citymarathon.webp' %}" height="100">  
+            
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'events:show_events' %}">Events</a>
+                </li>
+                <!-- Add more navigation items here if needed -->
+            </ul>
+            <div class="d-flex" role="search">
+              {%if request.user.is_authenticated%}
+              <span class="me-3 pt-2">{{request.user.username}}</span>
+              <a class="btn btn-danger" href="{% url 'registration:logout' %}">Logout</a>
+              {%else%}
+                <a class="btn btn-success" href="{% url 'registration:login' %}">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

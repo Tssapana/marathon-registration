@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}  
+
+{% block content %}
+
+<div class="text-center py-5" style="background: url('{% static 'images/marathon2.jpeg' %}') no-repeat center center; background-size: cover;">
+    <div class="container">
+        <h1 class="display-4 text-white">Welcome to City Marathon - 2024</h1>
+        <p class="lead text-white">Join us in celebrating fitness, endurance, and community spirit!</p>
+    </div>
+</div>
+
+
+<section class="py-5">
+    <div class="container">
+        <h2>Marathon History</h2>
+        <p>The concept of the marathon derives back from ancient Greece, symbolizing the legendary run of a Greek soldier from the Battle of Marathon to Athens to announce victory. Over centuries, this endurance run evolved into the marathon we know today, uniting people from all walks of life to test their limits, celebrate health and fitness, and foster community spirit.</p>
+        <p>The City Marathon embraces this rich history, offering participants a chance to be part of a storied tradition while experiencing the scenic beauty and cultural vibrancy of our city.</p>
+    </div>
+    <div class="container"><a class="btn btn-success" href="{% url 'registration:signup' %}">Register Here</a>
+    </div>
+</section>
+{% endblock %}
+
+

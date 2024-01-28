@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Events</h1>
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="{{event.thumbnail.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ event.date|date:"M d, Y" }}</h6>
+                    <p class="card-text">{{ event.description|truncatewords:10}}</p>
+                    <a href="{%url 'events:event_details' event.id%}" class="card-link">More details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

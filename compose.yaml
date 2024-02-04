@@ -2,6 +2,8 @@ version: '3.1'
 services:
   city_marathon:
     container_name: city_marathon
+    env_file:
+      - .env
     build:
       context: .
     command: python manage.py runserver 0.0.0.0:8000

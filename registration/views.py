@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import LoginForm, SignupForm
 from django.contrib.auth import authenticate, login, logout
+from django.core.mail import send_mail
 
 
 def login_user(request):
@@ -34,7 +35,13 @@ def signup_view(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
+            email=form.cleaned_data.get('email_address')
             form.save()
+            sender="sapanaatamang123@gmail.com"
+            receiver=[email]
+            subject="account creation"
+            body="account created successfully"
+            send_mail(subject,body,sender,receiver)
             # password=password
             # user=form.save(commit=False)
             # # user.set_password(form.cleaned_data.get('pass'))

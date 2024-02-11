@@ -55,5 +55,8 @@ def user_logout(request):
     logout(request)
     return redirect('/login')
 
+def about(request):
+    return render(request,'aboutus.html')
+
 
 
